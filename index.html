@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(227, 223, 223);
+        }
+
+        nav {
+            width: 100vw;
+            height: 70px;
+            box-shadow: 0 0 10px grey;
+            background-color: white;
+            position: fixed;
+            z-index: 15;
+            top: 0;
+            left: 0;
+
+        }
+
+
+        .right i {
+            font-size: 20px;
+
+        }
+
+        .section-1 {
+            width: 100vw;
+            margin-top: 70px;
+            /* min-height: 100vh; */
+            padding: 15px;
+            position: realtive;
+            z-index: -5;
+
+
+        }
+
+        .leftbox {
+            width: 19vw;
+            min-height: 300vh;
+
+        }
+
+        .middlebox {
+            width: 40vw;
+            min-height: 400vh;
+            /* overflow: scroll; */
+            margin: 0 15px;
+
+        }
+
+        .rightbox {
+            width: 19vw;
+            min-height: 300vh;
+
+
+        }
+
+        .leftpart1 {
+            width: 100%;
+            min-height: 300px;
+            background-color: white;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid rgb(186, 173, 173);
+
+
+        }
+        
+
+        .banner {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .profile {
+        
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.692);
+            position: relative;
+            bottom: 30px;
+            left: 110px;
+        }
+
+        .leftpart2 {
+            width: 100%;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgb(186, 173, 173);
+
+            span {
+                font-size: 13px;
+                color: rgba(0, 0, 0, 0.737);
+                font-weight: 700;
+            }
+
+            .color {
+                color: rgb(50, 50, 136);
+            }
+
+            p {
+                font-size: 13px;
+                color: black;
+                font-weight: 700;
+            }
+        }
+
+        .left2 .imp:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+
+        .leftpart3 {
+            width: 100%;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid rgb(186, 173, 173);
+
+            i {
+                font-size: 14px;
+                margin-right: 10px;
+            }
+
+            span {
+                color: black;
+                font-weight: 600;
+                font-size: 13px;
+            }
+        }
+
+        .left3 .imp:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+
+        .middlepart1 {
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid rgb(186, 173, 173);
+        }
+
+        .msub1 {
+            padding-top: 20px;
+            padding-left: 60px;
+            gap: 8px;
+
+            .post {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                width: 35vw;
+                height: 50px;
+                background-color: rgba(220, 220, 220, 0.247);
+                border: none;
+                border: 1px solid gray;
+                border-radius: 50px;
+                outline: none;
+                padding-top: 15px;
+
+            }
+
+            .post::placeholder {
+                padding: 20px;
+            }
+        }
+
+        .msub1 .search1:hover {
+            cursor: pointer;
+            background-color: rgba(128, 128, 128, 0.146);
+        }
+
+        .msub2 {
+            padding: 15px 50px;
+
+            .best {
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+
+            i {
+                font-size: 20px;
+            }
+        }
+
+        .t {
+            color: black;
+            font-family: 'Times New Roman', Times, serif
+        }
+
+        .line {
+            border-bottom: 1px solid gray;
+            margin-top: 15px;
+        }
+
+        .msub2 .best:hover {
+            background-color: rgba(128, 128, 128, 0.14);
+            border-radius: 5px;
+        }
+
+        .middlepart2 {
+            width: 100%;
+            height: 800px;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            border: 1px solid rgb(186, 173, 173);
+
+            .header {
+                padding: 15px 15px;
+            }
+
+            .Profile {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+
+            }
+
+            .Profile-name {
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .head {
+                padding: 15px;
+            }
+
+            .bd {
+                border: 1px solid rgba(128, 128, 128, 0.378);
+                margin: 0 20px;
+            }
+
+            .certificate {
+                height: auto;
+                width: 100%;
+               
+            }
+            .certificate2{
+                height: auto;
+                width: 100%;
+            }
+        }
+
+
+
+        .rightpart1 {
+            width: 100%;
+            height: 600px;
+            background-color: white;
+            border-radius: 7px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid rgb(186, 173, 173);
+
+
+        }
+
+        .rightpart2 {
+            width: 100%;
+            height: 260px;
+            background-color: white;
+            border-radius: 7px;
+            border: 1px solid rgb(186, 173, 173);
+            position: sticky;
+            top: 80px;
+        }
+        .rightpart1 {
+            padding: 15px 15px;
+            .news:hover{
+                cursor: pointer;
+                background-color: rgba(128, 128, 128, 0.136);
+            }
+            .puzzle:hover{
+                cursor: pointer;
+                background-color: rgba(128, 128, 128, 0.136);
+            }
+        }
+
+        .rightpart2 {
+            .aramco {
+                border-radius: 4px;
+                border: 2px solid white;
+                position: relative;
+                bottom: 47px;
+                left: 15px;
+            }
+
+            .info {
+                position: relative;
+                bottom: 45px;
+            }
+
+            .follow {
+                /* padding-top: 4px; */
+                border-radius: 50px;
+                width: 100%;
+                background-color: transparent;
+                color: rgba(0, 76, 255, 0.999);
+                border: 1px solid rgb(0, 76, 255);
+                font-weight: 500;
+            }
+            .follow:hover{
+                color: black;
+                background-color: rgba(0, 0, 255, 0.089);
+            }
+        }
+
+        .rightpart3 {
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 10px 10px;
+
+            span {
+                background-color: rgba(219, 177, 99, 0.447);
+                color: rgb(21, 11, 11);
+                padding: 4px 4px;
+                border-radius: 5px;
+                font-size: 13px;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                color: gray;
+                margin-top: 4px;
+            }
+            position: sticky;
+            top: 325px;
+            left: 15px;
+        }
+        
+
+        @media(max-width:1190px) {
+            .leftbox {
+                width: 25vw;
+            }
+
+            .middlebox {
+                width: 60vw;
+            }
+
+            .rightbox {
+                display: none;
+            }
+        }
+
+        @media(max-width:800px) {
+            .blocks {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .leftbox, .middlebox {
+                width: 90vw;
+            }
+        }
+
+        @media(max-width:600px) {
+            .leftbox {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="d-flex justify-content-around align-items-center">
+        <div class="left d-flex">
+            <img src="linkedin-logo.png" height="70px">
+            <div class="searchbar d-flex">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text my-2" id="addon-wrapping"><i
+                            class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-control my-2" placeholder="Search" aria-label="Search">
+                </div>
+            </div>
+        </div>
+        <div class="right d-flex justify-content-center align-items-center gap-4">
+            <div
+                class="right d-flex flex-column justify-content-end align-items-center border-black border-bottom border-4">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <div class="right d-flex flex-column justify-content-center align-items-center"><i
+                    class="fa-solid fa-user-group"></i>
+                <p>My Network</p>
+            </div>
+            <div class="right d-flex flex-column justify-content-center align-items-center"><i
+                    class="fa-solid fa-briefcase"></i>
+                <p>Jobs</p>
+            </div>
+            <div class="right d-flex flex-column justify-content-center align-items-center"> <i
+                    class="fa-solid fa-message"></i>
+                <p>Messaging</p>
+            </div>
+            <div
+                class="right d-flex flex-column justify-content-center align-items-center border-end border-secondary border-2 px-1">
+                <i class="fa-solid fa-bell"></i>
+                <p>Notifications</p>
+            </div>
+            <div class="right d-flex flex-column justify-content-center align-items-center">
+                <div class="right d-flex flex-row justify-content-center align-items-center gap-1">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+                <p>For Business</p>
+            </div>
+
+            <div class="right d-flex flex-column justify-content-center align-items-center mt-2">
+                <img src="premium.svg" height="30px">
+                <p>Try premium for $0</p>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- section 1 -->
+    <div class="section-1 d-flex justify-content-center align-items-start">
+        <!-- left section -->
+        <div class="leftbox">
+            <div class="leftpart1">
+                <img src="banner.png" alt="" class="banner">
+                <img src="myimg.jpg" class="profile">
+                <div class="text d-flex flex-column align-items-start justify-content-center px-3 mb-0">
+                    <h3 class="head mt-none; px-3">Manasa Pasupunuri</h3>
+                    <p class="des">Deputy Documentation Lead @SDC-SNIST | Tech Enthusiast |..</p>
+                    <div class="d-flex justify-content-center align-items-center gap-1">
+                        <img style="margin-bottom: 15px;" src="sdc_logo.jpeg" width="30px" alt="">
+                        <strong>
+                            <p style="font-size: 15px;"><u>SDC_SNIST</u></p>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="leftpart2 d-flex flex-column px-3 py-2">
+                <div class="imp d-flex justify-content-between">
+                    <span>Profile viewers</span>
+                    <span class="color">327</span>
+                </div>
+                <div class="imp d-flex justify-content-between">
+                    <span>Post impressions</span>
+                    <span class="color">875</span>
+                </div>
+                <div class="line"></div>
+                <p class="imp py-2">Your Premium features</p>
+            </div>
+            <div class="leftpart3 px-3 py-1">
+                <div>
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span class="imp">Saved items</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-people-group"></i>
+                    <span class="imp">Groups</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span class="imp">Newsletters</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-calendar"></i>
+                    <span class="imp">Events</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- middle section -->
+        <div class="middlebox">
+
+           
+            <div class="middlepart1 d-flex flex-column justify-content-center">
+                    <div class="msub1 d-flex justify-content-center align-items-center px-5 py-2 gap-4">
+                        <img src="myimg.jpg" width="50px" class="myimg" style="border-radius:50%">
+                        <form action="">
+                            <input type="search" name="" id="" placeholder="Start a post" class="post">
+                         </form>
+                    </div>
+                    <div class="msub2 d-flex justify-content-between align-items-center">
+                        <div class="best">
+                            <i class="fa-brands fa-youtube" style="color: green;"></i>
+                            <span class="t">video</span>
+                        </div>
+                        <div class="best">
+                            <i class="fa-solid fa-image" style="color: rgba(0, 0, 255, 0.632);"></i>
+                            <span class="t">Photo</span>
+                        </div>
+                        <div class="best">
+                            <i class="fa-solid fa-newspaper" style="color: orangered;"></i>
+                            <span class="t">Write article</span>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+            </div>
+
+            <div class="middlepart2">
+                <div class="header">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex p">
+                            <img src="1.png" class="Profile" alt="">
+                            <div class="px-2">
+                                <p class="Profile-name">Charanya Gundlapalli<span style="font-size: 10px;"></span></p>
+                                <p style="font-size: 11px; margin: 0">Student at Bhavan's Vivekananda Degree college | Bsc-lifesciences
+                                </p>
+                                <p style="font-size: 11px; margin: 0"> Hyderabad, Telangana, India
+                                </p>
+                                <p style="font-size: 10px;">3d | Edited | <i class="fa-solid fa-earth-americas"></i></p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start fs-5 gap-4">
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <p style="font-size: 14px; margin-bottom: 0;">Level Up My Molecular Biology Skills !
+
+                            🧪🔬Thrilled to announce that I recently participated in a "Molecular
+                            <span style="color: gray;">...more</span>
+                        </p>
+                    </div>
+                </div>
+               
+                <img src="certificate.png" style="height:550px;">
+              
+                <div class="head d-flex justify-content-between py-1">
+                    <div class="d-flex justify-content-start align-items-center gap-1">
+                        <p><img src="Like.png" height="20px"></p>
+                        <div style="font-size: 12px; margin-bottom: 9px;">You and 5 others</div>
+                    </div>
+                    <div>2 comments</div>
+                </div>
+                <div class="bd"></div>
+                <div class="comments">
+                    <div class="d-flex justify-content-around align-items-center pb-3">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <p><i class="fa-regular fa-thumbs-up"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">like</p>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <p><i class="fa-solid fa-comment-dots"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">Comment</p>
+                        </div>
+                        <div class="d-flex  justify-content-center align-items-center gap-2">
+                           <p><i class="fa-solid fa-repeat"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">Repost</p>
+                        </div>
+                        <div class="d-flex  justify-content-center align-items-center gap-2">
+                            <p><i class="fa-solid fa-paper-plane"></i></p>
+                             <p class=" d-none d-lg-flex d-md-flex d-sm-none">Send</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="middlepart2"> 
+                <div class="header">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex p">
+                            <img src="1.png" class="Profile" alt="">
+                            <div class="px-2">
+                                <p class="Profile-name">Vishnu Vardhan<span style="font-size: 10px;"></span></p>
+                                <p style="font-size: 11px; margin: 0">Web Development | Python | SQL | AWS
+                                </p>
+                                <p style="font-size: 11px; margin: 0">Secunderābād, Telangana, India
+                                </p>
+                                <p style="font-size: 10px;">5d | Edited | <i class="fa-solid fa-earth-americas"></i></p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start fs-5 gap-4">
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <p style="font-size: 14px; margin-bottom: 0;">I’m happy to share that I’ve obtained a new certification: Artificial Intelligence Fundamentals from IBM!
+                            <span style="color: gray;">...more</span>
+                        </p>
+                    </div>
+                </div>
+               
+                <img src="certificate2.png" style="height:550px;">
+              
+                <div class="head d-flex justify-content-between py-2">
+                    <div class="d-flex justify-content-start align-items-center gap-1">
+                        <p><img src="Like.png" height="20px"></p>
+                        <div style="font-size: 12px; margin-bottom: 9px;">You and 10 others</div>
+                    </div>
+                </div>
+                <div class="bd"></div>
+                <div class="comments">
+                    <div class="d-flex justify-content-around align-items-center pb-3">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <p><i class="fa-regular fa-thumbs-up"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">like</p>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <p><i class="fa-solid fa-comment-dots"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">Comment</p>
+                        </div>
+                        <div class="d-flex  justify-content-center align-items-center gap-2">
+                           <p><i class="fa-solid fa-repeat"></i></p>
+                            <p class=" d-none d-lg-flex d-md-flex d-sm-none">Repost</p>
+                        </div>
+                        <div class="d-flex  justify-content-center align-items-center gap-2">
+                            <p><i class="fa-solid fa-paper-plane"></i></p>
+                             <p class=" d-none d-lg-flex d-md-flex d-sm-none">Send</p>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+
+
+
+        <!-- right part -->
+        <div class="rightbox">
+            <div class="rightpart1">
+                <div class="d-flex justify-content-between">
+                    <h5>Trending Now</h5>
+                    <i style="margin-top: 2px; font-size: 13px;" class="fa-solid fa-info"></i>
+                </div>
+                <p style="color: gray; font-weight: 500; margin-bottom: 5px;">curated by LinkedIn News</p>
+                <div class="news">
+                    <h6 style="font-size: 14px; margin: 4px 0;">Large layoffs hit Starbucks</h6>
+                    <p style="font-size:12px;">8h ago | 54,199 readers</p>
+                </div>
+                <div class="news">
+                    <h6 style="font-size: 14px; margin: 4px 0;">High-profit GCCs on the rise</h6>
+                    <p style="font-size:12px;">15h ago | 2,594 readers</p>
+                </div>
+                <div class="news">
+                    <h6 style="font-size: 14px; margin: 4px 0;">VC firms eye agentic AI startups</h6>
+                    <p style="font-size:12px;">14h ago | 1,791 readers</p>
+                </div>
+                <div class="news">
+                    <h6 style="font-size: 14px; margin: 4px 0;">Indian firms embrase DEI</h6>
+                    <p style="font-size:12px;">14h ago | 1,061 readers</p>
+                </div>
+                <div class="news">
+                    <h6 style="font-size: 14px; margin: 4px 0;">Gold loans shine brighter</h6>
+                    <p style="font-size:12px;">15h ago | 699 readers</p>
+                </div>
+                <h6 style="color: gray;">Today's puzzles</h6>
+                <div>
+                    <div class="d-flex puzzle justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <img style="margin-bottom: 16px;;" src="tango.png" alt="">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px;">Tango</h6>
+                                <p style="font-size: 13px;">3 connections played</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex puzzle justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <img style="margin-bottom: 16px;;" src="queens.png" alt="">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px;">Queens</h6>
+                                <p style="font-size: 13px;">4 connections played</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex puzzle justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <img style="margin-bottom: 16px;;" src="pinpoint.png" alt="">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px;">Pinpoint</h6>
+                                <p style="font-size: 13px;">Guess the category</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="d-flex puzzle justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <img style="margin-bottom: 16px;;" src="crossclimb.png" alt="">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px;">Crossclimb</h6>
+                                <p style="font-size: 13px;">Unlock a trivia ladder</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightpart2">
+                <img src="bg.png".jpeg width="100%" alt="">
+                <img src="hitachi.png" class="aramco" width="70px" alt="">
+                <div class="d-flex flex-column info align-items-start px-3">
+                    <p style="font-size: 15px; font-weight: 500; margin-bottom: 0;">Hitachi</p>
+                    <p style="font-size: 14px; margin: 0;">Hitachi
+                    Hitachi Social Innovation is POWERING GOOD
+                    Stay updated on green-tech & decarbonization for a sustainable future.</p>
+                    <input type="button" value="Follow" class="follow pt-2">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
